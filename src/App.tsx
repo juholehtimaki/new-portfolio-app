@@ -1,6 +1,9 @@
 import React from 'react';
 
 export const App = () => {
-  const x = 1;
-  return <div></div>;
+  return (
+    <div>
+      <p className="text-3xl font-bold underline">Hello world!</p>
+    </div>
+  );
 };

@@ -1,39 +1,45 @@
-import { resolve as _resolve, join } from "path";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+const { resolve, join } = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-export const mode = "development";
-export const entry = "./src/index.tsx";
-export const output = {
-  filename: "bundle.js",
-  path: _resolve(__dirname, "dist"),
-};
-export const resolve = {
-  extensions: [".ts", ".tsx", ".js"],
-};
-export const module = {
-  rules: [
-    {
-      test: /\.tsx?$/,
-      use: "ts-loader",
-      exclude: /node_modules/,
+module.exports = {
+  mode: 'development',
+  entry: './src/index.tsx',
+  output: {
+    filename: 'bundle.js',
+    path: resolve(__dirname, 'dist'),
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
+    ],
+  },
+  devtool: 'source-map',
+  devServer: {
+    static: {
+      directory: join(__dirname, 'dist'),
     },
-    {
-      enforce: "pre",
-      test: /\.js$/,
-      loader: "source-map-loader",
-    },
-  ],
-};
-export const devtool = "source-map";
-export const devServer = {
-  static: {
-    directory: join(__dirname, "dist"),
     compress: true,
     port: 9000,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
+      template: './public/index.html',
     }),
   ],
 };
