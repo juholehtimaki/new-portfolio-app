@@ -16,7 +16,7 @@ const sections: SectionItem[] = [
 ];
 
 export const SectionNavigation = () => {
-  const [activeSection, setActiveSection] = useState<Section | null>(null);
+  const [activeSection, setActiveSection] = useState<Section | null>('about');
 
   const handleScrollToSection = (section: Section) => {
     scroller.scrollTo(section, {
@@ -47,9 +47,7 @@ export const SectionNavigation = () => {
     const scrollPosition = window.innerHeight / 2;
 
     const active = sectionOffsets.find((sec) => {
-      return (
-        sec!.rectTop <= scrollPosition && sec!.rectBottom >= scrollPosition
-      );
+      return sec.rectTop <= scrollPosition && sec!.rectBottom >= scrollPosition;
     });
 
     if (active) {
@@ -71,7 +69,7 @@ export const SectionNavigation = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 items-start pt-10">
       {sections.map((section) => (
         <SectionButton
           key={section.section}
