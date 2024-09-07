@@ -15,8 +15,11 @@ export const App: React.FC = () => {
         </div>
         <div className="flex flex-col">
           <AboutSection />
+          <hr className="border-t border-gray-300 my-4" />
           <ExperienceSection />
+          <hr className="border-t border-gray-300 my-4" />
           <EducationSection />
+          <hr className="border-t border-gray-300 my-4" />
           <CertificationsSection />
         </div>
       </div>

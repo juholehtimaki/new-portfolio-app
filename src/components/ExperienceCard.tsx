@@ -1,6 +1,7 @@
 import React from 'react';
 import { SkillChip } from './SkillChip';
 import { Experience } from '../types';
+import { Link } from './Link';
 
 type Props = Experience;
 
@@ -9,6 +10,7 @@ export const ExperienceCard: React.FC<Props> = ({
   title,
   description,
   skills,
+  addiotionalLink,
 }) => {
   return (
     <div className="flex flex-row gap-1">
@@ -17,10 +19,11 @@ export const ExperienceCard: React.FC<Props> = ({
         <div className="font-bold text-gray-100">{title}</div>
         <div className="text-sm">{description}</div>
         <div className="flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <SkillChip key={skill} label={skill} />
-          ))}
+          {skills?.map((skill) => <SkillChip key={skill} label={skill} />)}
         </div>
+        {addiotionalLink && (
+          <Link label={'View project in GitHub'} link={addiotionalLink} />
+        )}
       </div>
     </div>
   );

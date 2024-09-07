@@ -4,5 +4,6 @@ export type Experience = {
   duration: string;
   title: string;
   description: string;
-  skills: string[];
+  skills?: string[];
+  addiotionalLink?: string;
 };
