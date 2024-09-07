@@ -6,7 +6,7 @@ import { ExperienceCard } from '../components/ExperienceCard';
 const experience: Experience[] = [
   {
     duration: 'Jan 2022 - Present',
-    title: 'Knowit / Cybercom - Software Developer',
+    title: 'Cirit - Software Developer',
     description:
       'Full-stack development and consulting across various projects in the ERP systems and e-commerce domains. My work has encompassed tasks such as creating modern websites for large user bases, developing scalable and reliable backend solutions, data analytics, automating cloud infrastructures (Infrastructure as Code - IaC), and establishing development pipelines.',
     skills: [
@@ -39,7 +39,7 @@ const experience: Experience[] = [
   },
   {
     duration: 'Mar 2020 - Mar 2021',
-    title: 'Nokia -  Trainee',
+    title: 'Nokia - Trainee',
     description:
       'Full-stack development within a team focused on developing various microservices for a cloud-native network management system product. My responsibilities included developing both frontend and backend microservices, implementing comprehensive testing, and automating pipelines and deployments.',
     skills: ['Node.js', 'React', 'Docker', 'Kubernetes', 'Jenkins', 'Java'],
