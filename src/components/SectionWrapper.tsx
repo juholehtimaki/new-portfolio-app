@@ -7,12 +7,10 @@ type Props = {
   children: React.ReactNode;
 };
 
-export const SectionWrapper: React.FC<Props> = ({ sectionName, children }) => {
-  return (
-    <Element name={sectionName} id={sectionName}>
-      <div className="flex justify-center text-gray-400 max-w-lg pt-20 pb-20">
-        {children}
-      </div>
-    </Element>
-  );
-};
+export const SectionWrapper: React.FC<Props> = ({ sectionName, children }) => (
+  <Element name={sectionName} id={sectionName}>
+    <div className="flex justify-center text-gray-400 max-w-lg pt-20 pb-20">
+      {children}
+    </div>
+  </Element>
+);

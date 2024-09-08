@@ -8,7 +8,7 @@ type Props = {
 
 export const SocialMediaLink: React.FC<Props> = ({ icon: Icon, url }) => {
   const handleClick = () => {
-    window.open(url); // Opens the URL in a new tab
+    window.open(url);
   };
 
   return (

@@ -13,12 +13,10 @@ const links = [
   },
 ];
 
-export const SocialMediaLinks = () => {
-  return (
-    <div className="flex flex-row gap-5 justify-center">
-      {links.map((link) => (
-        <SocialMediaLink key={link.url} icon={link.icon} url={link.url} />
-      ))}
-    </div>
-  );
-};
+export const SocialMediaLinks = () => (
+  <div className="flex flex-row gap-5 justify-center">
+    {links.map((link) => (
+      <SocialMediaLink key={link.url} icon={link.icon} url={link.url} />
+    ))}
+  </div>
+);

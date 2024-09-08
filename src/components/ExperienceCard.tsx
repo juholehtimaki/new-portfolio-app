@@ -11,20 +11,18 @@ export const ExperienceCard: React.FC<Props> = ({
   description,
   skills,
   addiotionalLink,
-}) => {
-  return (
-    <div className="flex flex-row gap-1">
-      <div className="flex-shrink-0 w-1/3 text-sm">{duration}</div>
-      <div className="flex flex-col gap-3">
-        <div className="font-bold text-gray-100">{title}</div>
-        <div className="text-sm">{description}</div>
-        <div className="flex flex-wrap gap-2">
-          {skills?.map((skill) => <SkillChip key={skill} label={skill} />)}
-        </div>
-        {addiotionalLink && (
-          <Link label={'View project in GitHub'} link={addiotionalLink} />
-        )}
+}) => (
+  <div className="flex flex-row gap-1">
+    <div className="flex-shrink-0 w-1/3 text-sm">{duration}</div>
+    <div className="flex flex-col gap-3">
+      <div className="font-bold text-gray-100">{title}</div>
+      <div className="text-sm">{description}</div>
+      <div className="flex flex-wrap gap-2">
+        {skills?.map((skill) => <SkillChip key={skill} label={skill} />)}
       </div>
+      {addiotionalLink && (
+        <Link label={'View project in GitHub'} link={addiotionalLink} />
+      )}
     </div>
-  );
-};
+  </div>
+);
