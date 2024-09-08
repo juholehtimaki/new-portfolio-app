@@ -3,7 +3,7 @@ import { SectionWrapper } from '../components/SectionWrapper';
 import { Experience } from '../types';
 import { ExperienceCard } from '../components/ExperienceCard';
 
-const experience: Experience[] = [
+const experiences: Experience[] = [
   {
     duration: 'Jan 2022 - Present',
     title: 'Cirit - Software Developer',
@@ -49,7 +49,7 @@ const experience: Experience[] = [
 export const ExperienceSection = () => (
   <SectionWrapper sectionName="experience">
     <div className="flex flex-col gap-20">
-      {experience.map((exp) => (
+      {experiences.map((exp) => (
         <ExperienceCard key={exp.title} {...exp} />
       ))}
     </div>
