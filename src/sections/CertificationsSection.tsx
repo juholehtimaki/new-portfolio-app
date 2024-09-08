@@ -16,7 +16,7 @@ const certifications = [
   {
     title: 'AWS Certified Developer – Associate',
     image: dev,
-    validFrom: 'June 2023 - June 2026',
+    validFrom: 'Jun 2023 - Jun 2026',
     verifyLink:
       'https://www.credly.com/badges/2c0fd06c-1505-4096-8e97-042fca2b4edd/linked_in_profile',
   },
