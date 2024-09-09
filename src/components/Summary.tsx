@@ -8,6 +8,8 @@ export const Summary: React.FC = () => (
     <h3 className="text-xl font-roboto font-bold text-gray-100">
       Full Stack Developer
     </h3>
-    <p className="font-roboto text-gray-400">I build things</p>
+    <p className="font-roboto text-gray-400 max-w-xs">
+      I build scalable, cloud-powered, and efficient web solutions.
+    </p>
   </div>
 );
