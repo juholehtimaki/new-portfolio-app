@@ -14,7 +14,7 @@ const links = [
 ];
 
 export const SocialMediaLinks = () => (
-  <div className="flex flex-row gap-5 justify-center">
+  <div className="flex flex-row gap-5">
     {links.map((link) => (
       <SocialMediaLink key={link.url} icon={link.icon} url={link.url} />
     ))}

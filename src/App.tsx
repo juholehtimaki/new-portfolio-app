@@ -8,8 +8,8 @@ import { AboutSection } from './sections/AboutSection';
 
 export const App: React.FC = () => (
   <Layout>
-    <div className="flex flex-row gap-10">
-      <div className="sticky top-0 h-screen">
+    <div className="flex flex-col lg:flex-row lg:gap-10">
+      <div className="lg:sticky lg:top-0 lg:h-screen">
         <MeSection />
       </div>
       <div className="flex flex-col">

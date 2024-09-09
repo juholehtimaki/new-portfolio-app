@@ -5,5 +5,5 @@ type Props = {
 };
 
 export const Layout: React.FC<Props> = ({ children }) => (
-  <div className="flex justify-center">{children}</div>
+  <div className="flex justify-center pr-10 pl-10">{children}</div>
 );
