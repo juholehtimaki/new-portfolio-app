@@ -9,7 +9,6 @@ module.exports = {
       },
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
-        suse: ['SUSE', 'sans-serif'],
       },
       colors: {
         background: 'rgb(15, 23, 42)',
