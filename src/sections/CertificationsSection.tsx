@@ -25,7 +25,7 @@ const certifications = [
     image: serverless,
     validFrom: 'Feb 2024',
     verifyLink:
-      'https://www.credly.com/badges/2c0fd06c-1505-4096-8e97-042fca2b4edd/linked_in_profile',
+      'https://www.credly.com/badges/6069e23a-a950-4694-a1a9-c4c8db4c2c63/linked_in_profile',
   },
 ];
 
