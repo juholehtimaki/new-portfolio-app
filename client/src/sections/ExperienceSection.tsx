@@ -17,7 +17,7 @@ const experiences: Experience[] = [
       'Angular',
       'Vue.js',
       'Next.js',
-      'TailwindCSS',
+      'Tailwind CSS',
       'Contentful',
       'Docker',
       'PostgreSQL',

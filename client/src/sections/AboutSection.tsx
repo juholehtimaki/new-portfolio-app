@@ -4,7 +4,7 @@ import { SectionWrapper } from '../components/SectionWrapper';
 export const AboutSection = () => (
   <SectionWrapper sectionName="about">
     <div className="flex flex-col gap-5">
-      <p className="text-lg">
+      <p>
         I'm a driven and passionate full-stack developer with a love for
         tackling a wide range of challenges, whether it's building software or
         something like playing chess. In my work, I enjoy getting involved in
