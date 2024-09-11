@@ -8,7 +8,7 @@ const experiences: Experience[] = [
     duration: 'May 2020 - Jun 2023',
     title: "Tampere University - Master's Degree in Computer Science",
     description:
-      "Wrote a master's thesis about combining DevOps and cloud in the modern software development. Thesis' project represents a fully automated full-stack serverless system, developed using AWS serverless services, CDK (Infrastructure as Code), React, and GitHub Actions. It encompasses automated testing and deployment procedures for both production and staging environments. The primary objective of this endeavor was to demonstrate the seamless integration of DevOps methodologies and cloud services in modern software development, serving as the focal point of a Master's thesis.",
+      "Wrote a master's thesis on the integration of DevOps and cloud in modern software development. The project involved building a fully automated full-stack serverless system using AWS serverless services, CDK (Infrastructure as Code), React, and GitHub Actions. It included automated testing and deployment processes for both production and staging environments. The primary objective was to demonstrate how DevOps methodologies and cloud services can be seamlessly integrated in modern software development, which was the central focus of the thesis.",
     addiotionalLink: 'https://github.com/juholehtimaki/thesis-app',
   },
   {

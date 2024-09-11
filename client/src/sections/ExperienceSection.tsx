@@ -8,15 +8,16 @@ const experiences: Experience[] = [
     duration: 'Jan 2022 - Present',
     title: 'Cirit - Software Developer',
     description:
-      'Full-stack development and consulting across various projects in the ERP systems and e-commerce domains. My work has encompassed tasks such as creating modern websites for large user bases, developing scalable and reliable backend solutions, data analytics, automating cloud infrastructures (Infrastructure as Code - IaC), and establishing development pipelines.',
+      'Full-stack development and consulting across a range of projects in ERP systems and e-commerce. My work has included creating modern websites for large user bases, developing scalable and reliable backend solutions, performing data analytics, automating cloud infrastructures using Infrastructure as Code (IaC), and setting up development pipelines.',
     skills: [
       'AWS',
       'Node.js',
       'TypeScript',
-      'React',
+      'React.js',
       'Angular',
       'Vue.js',
       'Next.js',
+      'TailwindCSS',
       'Contentful',
       'Docker',
       'PostgreSQL',
@@ -31,7 +32,7 @@ const experiences: Experience[] = [
       'AWS',
       'Node.js',
       'TypeScript',
-      'React',
+      'React.js',
       'Flutter',
       'Dart',
       'GraphQL',
@@ -41,8 +42,8 @@ const experiences: Experience[] = [
     duration: 'Mar 2020 - Mar 2021',
     title: 'Nokia - Trainee',
     description:
-      'Full-stack development within a team focused on developing various microservices for a cloud-native network management system product. My responsibilities included developing both frontend and backend microservices, implementing comprehensive testing, and automating pipelines and deployments.',
-    skills: ['Node.js', 'React', 'Docker', 'Kubernetes', 'Jenkins', 'Java'],
+      'Full-stack development as part of a team building various microservices for a cloud-native network management system. My responsibilities included developing frontend and backend microservices, implementing comprehensive testing, and automating pipelines and deployments.',
+    skills: ['Node.js', 'React.js', 'Docker', 'Kubernetes', 'Jenkins', 'Java'],
   },
 ];
 

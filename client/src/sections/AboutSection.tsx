@@ -5,26 +5,23 @@ export const AboutSection = () => (
   <SectionWrapper sectionName="about">
     <div className="flex flex-col gap-5">
       <p className="text-lg">
-        I’m a self-driven and passionate full stack software developer who loves
-        to solve a wide variety of different problems, be it software
-        development related or something else like chess. In my professional
-        work-life, I usually find myself working with both, frontend and
-        backend, in order to keep things interesting and constantly develop my
-        skills further. Furthermore, building infrastructures and solutions on
-        the cloud is something that I like doing.
+        I'm a driven and passionate full-stack developer with a love for
+        tackling a wide range of challenges, whether it's building software or
+        something like playing chess. In my work, I enjoy getting involved in
+        both frontend and backend development. I also like designing scalable
+        solutions and working with cloud infrastructures.
       </p>
       <p>
-        My tech stack consists of the most popular technologies currently being
-        used in web development, the strongest ones being React.js, Node.js,
-        TypeScript and AWS. Other notable techs worth mentioning are Vue.js,
-        Angular and Next.js. I enjoy delving into new frameworks and techs, and
-        once I get the hang of them, I love to teach others.
+        My core tech stack includes React.js, Node.js, TypeScript, and AWS, but
+        I’ve also worked with Vue.js, Angular, and Next.js. I’m always eager to
+        dive into new frameworks and tools, and once I’ve got a handle on them,
+        I enjoy passing that knowledge on to others.
       </p>
       <p>
-        As a person, I am a happy and social guy who gets along with everyone
-        and loves to work in a team. In my free time, I love spending time with
-        my friends, going outside, doing different sports such as running and
-        gym, playing guitar and chess, and trying out new cooking recipes.
+        On a personal note, I’m a friendly, easy-going guy who loves being part
+        of a team. When I’m not working, you’ll probably find me running, at the
+        gym, playing guitar, hanging out with friends, trying out new recipes,
+        or, of course, playing chess.
       </p>
     </div>
   </SectionWrapper>
