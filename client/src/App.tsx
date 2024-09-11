@@ -6,6 +6,7 @@ import { EducationSection } from './sections/EducationSection';
 import { Layout } from './components/Layout';
 import { AboutSection } from './sections/AboutSection';
 import { MouseWrapper } from './components/MouseWrapper';
+import { Footer } from './components/Footer';
 
 export const App: React.FC = () => (
   <MouseWrapper>
@@ -22,6 +23,7 @@ export const App: React.FC = () => (
           <EducationSection />
           <hr className="border-t border-gray-300 my-4" />
           <CertificationsSection />
+          <Footer />
         </div>
       </div>
     </Layout>

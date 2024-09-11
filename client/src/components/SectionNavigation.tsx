@@ -15,12 +15,6 @@ const sections: SectionItem[] = [
   { section: 'certifications', label: 'Certifications' },
 ];
 
-const remToPx = (rem: number) => {
-  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-};
-
-const HEADER_OFFSET = remToPx(5); // 5rem
-
 export const SectionNavigation = () => {
   const [activeSection, setActiveSection] = useState<Section | null>('about');
 
@@ -29,7 +23,6 @@ export const SectionNavigation = () => {
       duration: 800,
       delay: 0,
       smooth: 'easeInOutQuart',
-      offset: -HEADER_OFFSET,
     });
   };
 
@@ -45,19 +38,26 @@ export const SectionNavigation = () => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return { section, rectTop: rect.top, rectBottom: rect.bottom };
+          return {
+            section,
+            rectTop: rect.top + window.scrollY,
+            rectBottom: rect.bottom + window.scrollY,
+          };
         }
         return null;
       })
       .filter((sec) => sec !== null);
 
-    const scrollPosition = window.innerHeight / 2;
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    const topThreshold = 700;
 
     const active = sectionOffsets.find((sec) => {
-      return sec.rectTop <= scrollPosition && sec!.rectBottom >= scrollPosition;
+      return sec.rectTop <= scrollPosition && sec.rectBottom >= scrollPosition;
     });
 
-    if (active) {
+    if (scrollPosition < topThreshold) {
+      setActiveSection('about');
+    } else if (active) {
       setActiveSection(active.section);
     }
   };
