@@ -8,6 +8,7 @@ export const Footer = () => (
     </span>
     <a
       href="https://github.com/juholehtimaki/new-portfolio-app"
+      target="_blank"
       className="text-gray-100"
     >
       GitHub
