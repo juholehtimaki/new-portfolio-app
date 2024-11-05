@@ -5,7 +5,7 @@ export const AboutSection = () => (
   <SectionWrapper sectionName="about">
     <div className="flex flex-col gap-5">
       <p>
-        I'm a driven and passionate full-stack developer with a love for
+        I'm a self-driven and passionate full-stack developer with a love for
         tackling a wide range of challenges, whether it's building software or
         something like playing chess. In my work, I enjoy getting involved in
         both frontend and backend development. I also like designing scalable
