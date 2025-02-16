@@ -5,10 +5,27 @@ import { ExperienceCard } from '../components/ExperienceCard';
 
 const experiences: Experience[] = [
   {
-    duration: 'Jan 2022 - Present',
+    duration: 'Nov 2024 - Present',
+    title: 'Elisa - Software Engineer',
+    description:
+      'Full-stack software development in the distributed energy storage domain, including projects such as Elisa\'s Kotiakku and related backend systems.',
+    skills: [
+      'AWS',
+      'TypeScript',
+      'React.js',
+      'Node.js',
+      'Flutter',
+      'Dart',
+      'Python',
+      'Tailwind CSS',
+      'Docker',
+    ],
+  },
+  {
+    duration: 'Jan 2022 - Nov 2024',
     title: 'Cirit - Software Developer',
     description:
-      'Full-stack development and consulting across a range of projects in ERP systems and e-commerce. My work has included creating modern websites for large user bases, developing scalable and reliable backend solutions, performing data analytics, automating cloud infrastructures using Infrastructure as Code (IaC), and setting up development pipelines.',
+      'Full-stack development and consulting across ERP systems and e-commerce projects. My work included building modern, high-traffic websites, developing scalable and reliable backend solutions, leveraging data analytics, automating cloud infrastructure (Infrastructure as Code - IaC), and setting up efficient development pipelines.',
     skills: [
       'AWS',
       'Node.js',
@@ -27,7 +44,7 @@ const experiences: Experience[] = [
     duration: 'Apr 2021 - Dec 2021',
     title: 'Knowit / Cybercom - Software Developer',
     description:
-      'Full-stack development and consulting across multiple projects, spanning from websites to mobile applications. My work encompassed tasks such as building a modern web application and a cross-platform mobile app with voice-command support, creating cloud solutions, automating pipelines, and implementing comprehensive E2E tests.',
+      'Full-stack development and consulting across multiple projects, ranging from websites to mobile applications. My work included building modern web applications and cross-platform mobile apps with voice-command support, developing cloud solutions, automating pipelines, and implementing comprehensive E2E testing.',
     skills: [
       'AWS',
       'Node.js',
@@ -42,7 +59,7 @@ const experiences: Experience[] = [
     duration: 'Mar 2020 - Mar 2021',
     title: 'Nokia - Trainee',
     description:
-      'Full-stack development as part of a team building various microservices for a cloud-native network management system. My responsibilities included developing frontend and backend microservices, implementing comprehensive testing, and automating pipelines and deployments.',
+      'Full-stack development within a team building microservices for a cloud-native network management system. My responsibilities included developing frontend and backend microservices, implementing comprehensive testing, and automating pipelines and deployments.',
     skills: ['Node.js', 'React.js', 'Docker', 'Kubernetes', 'Jenkins', 'Java'],
   },
 ];
