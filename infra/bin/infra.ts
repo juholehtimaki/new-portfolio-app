@@ -6,15 +6,18 @@ import "dotenv/config";
 
 const app = new cdk.App();
 
+const vars = {
+  domain: "juholehtimaki.com"
+};
+
 const env = {
   region: process.env.AWS_REGION,
-  account: process.env.ACCOUNT_ID,
-  domain: process.env.DOMAIN,
-};
+  account: process.env.AWS_ACCOUNT_ID,
+}
 
 new InfraStack(
   app,
   "InfraStack",
-  { domain: process.env.DOMAIN ?? "" },
+  { domain: vars.domain },
   { env }
 );
