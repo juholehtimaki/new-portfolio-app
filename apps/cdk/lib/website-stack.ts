@@ -1,22 +1,19 @@
-import {
-  RemovalPolicy,
-  Stack,
-  type StackProps,
-  aws_certificatemanager as acm,
-  aws_cloudfront as cloudfront,
-  aws_route53 as route53,
-  aws_s3 as s3,
-  aws_s3_deployment as s3deploy,
-  aws_route53_targets as targets,
-} from "aws-cdk-lib";
+import * as cdk from "aws-cdk-lib";
+import * as acm from "aws-cdk-lib/aws-certificatemanager";
+import * as cloudfront from "aws-cdk-lib/aws-cloudfront";
+import * as origins from "aws-cdk-lib/aws-cloudfront-origins";
+import * as route53 from "aws-cdk-lib/aws-route53";
+import * as targets from "aws-cdk-lib/aws-route53-targets";
+import * as s3 from "aws-cdk-lib/aws-s3";
+import * as s3deploy from "aws-cdk-lib/aws-s3-deployment";
 import type { Construct } from "constructs";
 
-export class WebsiteStack extends Stack {
+export class WebsiteStack extends cdk.Stack {
   constructor(
     scope: Construct,
     id: string,
     domain: string,
-    props?: StackProps,
+    props?: cdk.StackProps,
   ) {
     super(scope, id, props);
 
@@ -24,54 +21,42 @@ export class WebsiteStack extends Stack {
       domainName: domain,
     });
 
-    const siteCertificate = new acm.DnsValidatedCertificate(
-      this,
-      "SiteCertificate",
-      {
-        domainName: domain,
-        hostedZone: zone,
-        region: "us-east-1", //cloudfront cert has to be located in us-east-1
-      },
-    );
+    const siteCertificate = new acm.Certificate(this, "SiteCertificate", {
+      domainName: domain,
+      validation: acm.CertificateValidation.fromDns(zone),
+    });
 
     const siteBucket = new s3.Bucket(this, "SiteBucket", {
       bucketName: domain,
-      removalPolicy: RemovalPolicy.DESTROY,
+      removalPolicy: cdk.RemovalPolicy.DESTROY,
       websiteIndexDocument: "index.html",
       autoDeleteObjects: true,
       publicReadAccess: false,
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
     });
 
-    const cloudFrontOAI = new cloudfront.OriginAccessIdentity(
-      this,
-      "CloudFrontOAI",
-    );
-
-    siteBucket.grantRead(cloudFrontOAI);
-
-    const siteDistribution = new cloudfront.CloudFrontWebDistribution(
+    const siteDistribution = new cloudfront.Distribution(
       this,
       "CloudFrontDistribution",
       {
-        originConfigs: [
+        defaultRootObject: "index.html",
+        minimumProtocolVersion: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
+        defaultBehavior: {
+          origin: origins.S3BucketOrigin.withOriginAccessControl(siteBucket),
+          compress: true,
+          allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
+          viewerProtocolPolicy:
+            cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
+        },
+        errorResponses: [
           {
-            s3OriginSource: {
-              s3BucketSource: siteBucket,
-              originAccessIdentity: cloudFrontOAI,
-            },
-            behaviors: [{ isDefaultBehavior: true }],
+            httpStatus: 403,
+            responseHttpStatus: 200,
+            responsePagePath: "/index.html",
           },
         ],
-        viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
-        viewerCertificate: {
-          aliases: [domain],
-          props: {
-            acmCertificateArn: siteCertificate.certificateArn,
-            sslSupportMethod: "sni-only",
-            minimumProtocolVersion: "TLSv1.2_2021",
-          },
-        },
+        certificate: siteCertificate,
+        domainNames: [domain],
       },
     );
 
