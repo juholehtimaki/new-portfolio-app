@@ -11,20 +11,14 @@ import {
 } from "aws-cdk-lib";
 import type { Construct } from "constructs";
 
-type Variables = {
-  domain: string;
-};
-
-export class InfraStack extends Stack {
+export class WebsiteStack extends Stack {
   constructor(
     scope: Construct,
     id: string,
-    variables: Variables,
+    domain: string,
     props?: StackProps,
   ) {
     super(scope, id, props);
-
-    const { domain } = variables;
 
     const zone = route53.HostedZone.fromLookup(this, "Zone", {
       domainName: domain,
@@ -41,7 +35,7 @@ export class InfraStack extends Stack {
     );
 
     const siteBucket = new s3.Bucket(this, "SiteBucket", {
-      bucketName: variables.domain,
+      bucketName: domain,
       removalPolicy: RemovalPolicy.DESTROY,
       websiteIndexDocument: "index.html",
       autoDeleteObjects: true,
@@ -71,7 +65,7 @@ export class InfraStack extends Stack {
         ],
         viewerProtocolPolicy: cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         viewerCertificate: {
-          aliases: [variables.domain],
+          aliases: [domain],
           props: {
             acmCertificateArn: siteCertificate.certificateArn,
             sslSupportMethod: "sni-only",
@@ -82,7 +76,7 @@ export class InfraStack extends Stack {
     );
 
     new route53.ARecord(this, "SiteRecord", {
-      recordName: variables.domain,
+      recordName: domain,
       target: route53.RecordTarget.fromAlias(
         new targets.CloudFrontTarget(siteDistribution),
       ),

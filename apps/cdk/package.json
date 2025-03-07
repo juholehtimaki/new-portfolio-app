@@ -1,13 +1,12 @@
 {
-  "name": "infra",
+  "name": "cdk",
   "version": "0.1.0",
   "bin": {
-    "infra": "bin/infra.js"
+    "cdk": "infra.js"
   },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
     "cdk": "cdk"
   },
   "devDependencies": {
