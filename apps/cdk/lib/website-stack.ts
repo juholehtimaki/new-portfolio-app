@@ -21,12 +21,14 @@ export class WebsiteStack extends cdk.Stack {
       domainName: domain,
     });
 
-    const siteCertificate = new acm.Certificate(this, "SiteCertificate", {
+    const certificate = new acm.DnsValidatedCertificate(this, "Certificate", {
       domainName: domain,
       validation: acm.CertificateValidation.fromDns(zone),
+      hostedZone: zone,
+      region: "us-east-1",
     });
 
-    const siteBucket = new s3.Bucket(this, "SiteBucket", {
+    const websiteBucket = new s3.Bucket(this, "WebsiteBucket", {
       bucketName: domain,
       removalPolicy: cdk.RemovalPolicy.DESTROY,
       websiteIndexDocument: "index.html",
@@ -35,14 +37,14 @@ export class WebsiteStack extends cdk.Stack {
       blockPublicAccess: s3.BlockPublicAccess.BLOCK_ALL,
     });
 
-    const siteDistribution = new cloudfront.Distribution(
+    const cfnDistribution = new cloudfront.Distribution(
       this,
-      "CloudFrontDistribution",
+      "CfnDistribution",
       {
         defaultRootObject: "index.html",
         minimumProtocolVersion: cloudfront.SecurityPolicyProtocol.TLS_V1_2_2021,
         defaultBehavior: {
-          origin: origins.S3BucketOrigin.withOriginAccessControl(siteBucket),
+          origin: origins.S3BucketOrigin.withOriginAccessControl(websiteBucket),
           compress: true,
           allowedMethods: cloudfront.AllowedMethods.ALLOW_GET_HEAD_OPTIONS,
           viewerProtocolPolicy:
@@ -55,23 +57,23 @@ export class WebsiteStack extends cdk.Stack {
             responsePagePath: "/index.html",
           },
         ],
-        certificate: siteCertificate,
+        certificate: certificate,
         domainNames: [domain],
       },
     );
 
-    new route53.ARecord(this, "SiteRecord", {
+    new route53.ARecord(this, "Record", {
       recordName: domain,
       target: route53.RecordTarget.fromAlias(
-        new targets.CloudFrontTarget(siteDistribution),
+        new targets.CloudFrontTarget(cfnDistribution),
       ),
       zone,
     });
 
-    new s3deploy.BucketDeployment(this, "DeploymentToSiteBucket", {
+    new s3deploy.BucketDeployment(this, "WebsiteBucketDeployment", {
       sources: [s3deploy.Source.asset("../client/dist")],
-      destinationBucket: siteBucket,
-      distribution: siteDistribution,
+      destinationBucket: websiteBucket,
+      distribution: cfnDistribution,
       distributionPaths: ["/*"],
       retainOnDelete: false,
     });

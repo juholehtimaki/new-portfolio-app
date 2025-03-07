@@ -2,7 +2,7 @@
   "name": "cdk",
   "version": "0.1.0",
   "bin": {
-    "cdk": "infra.js"
+    "portfolio": "portfolio.js"
   },
   "scripts": {
     "build": "tsc",

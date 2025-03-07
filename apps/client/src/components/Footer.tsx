@@ -1,5 +1,5 @@
 export const Footer = () => (
-  <span className="mb-20 font-roboto text-gray-400 max-w-md gap-5">
+  <span className="mb-16 font-roboto text-gray-400 max-w-md gap-5">
     <span>
       This website was built using React.js and Tailwind CSS. The source code is
       available on{" "}

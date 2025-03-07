@@ -12,4 +12,4 @@ const env = {
 
 const app = new cdk.App();
 
-new WebsiteStack(app, "InfraStack", DOMAIN, { env });
+new WebsiteStack(app, "PortfolioWebsiteStack", DOMAIN, { env });
