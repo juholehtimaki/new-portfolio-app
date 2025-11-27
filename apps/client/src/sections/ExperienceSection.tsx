@@ -5,7 +5,7 @@ import type { Experience } from "../lib/types";
 const experiences: Experience[] = [
   {
     duration: "Nov 2024 - Present",
-    title: "Elisa - Software Engineer",
+    title: "Gridle | Elisa Industriq - Senior Software Engineer",
     description:
       "Full-stack software development in the distributed energy storage domain, including projects such as Elisa's Kotiakku and related backend systems.",
     skills: [
